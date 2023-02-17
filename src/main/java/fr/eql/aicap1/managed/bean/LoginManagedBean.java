@@ -33,7 +33,7 @@ public class LoginManagedBean {
             );
             FacesContext.getCurrentInstance().addMessage("loginForm:inpLogin", facesMessage);
             FacesContext.getCurrentInstance().addMessage("loginForm:inpPassword", facesMessage);
-            forward = "/simpleLogin.xhtml? faces-redirect=False";
+            forward = "/login.xhtml? faces-redirect=False";
         }
 
         return forward;
