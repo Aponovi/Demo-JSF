@@ -6,14 +6,25 @@
       xmlns:b="http://bootsfaces.net/ui"
 >
 
-<ui:composition template="simpleArch.xhtml">
-    <ui:define name="head">
-    </ui:define>
-    <ui:define name="content">
-        <h4>
-            Propriétaire en sesion :
-            <h:outputLabel value="#{mbLogin.owner.surname}"/>
-        </h4>
-    </ui:define>
-</ui:composition>
+<h:head>
+    <ui:insert name="head"/>
+    <h:outputStylesheet library="css" name="myStyle.css"/>
+</h:head>
+<h:body>
+    <div class="header flex-justify-content-center flex-align-items-center">
+        <h1> Mon application</h1>
+    </div>
+    <b:container>
+        <b:row>
+            <b:column styleClass="content">
+                <ui:insert name="content"/>
+            </b:column>
+        </b:row>
+
+    </b:container>
+    <div class="footer flex-justify-content-center flex-align-items-center">
+        <h2>monapp - 2023</h2>
+    </div>
+</h:body>
+
 </html>
