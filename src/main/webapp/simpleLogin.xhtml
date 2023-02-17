@@ -10,7 +10,28 @@
         <title>Authentification</title>
     </ui:define>
     <ui:define name="content">
+        <h:form id="loginForm">
+            <h:messages globalOnly="true"/>
+            <label>Identifiant</label>
+            <h:inputText
+                    id="inpLogin"
+                    value="#{mbLogin.login}"
+                    required="true"
+                    requiredMessage="La saisie de l'identifiant est obligatoire"
+            />
+            <h:message for="inpLogin" style="color: crimson"/>
+            <br/>
+            <label>Mot de passe</label>
+            <h:inputSecret
+                    id="inpPassword"
+                    value="#{mbLogin.password}"
+                    required="true"
+                    requiredMessage="La saisie du mot de passe est obligatoire"
+            />
+            <h:message for="inpPassword" style="color: crimson"/>
+            <h:commandButton value="Connexion" action="#{mbLogin.connect()}"/>
 
+        </h:form>
     </ui:define>
 </ui:composition>
 </html>
