@@ -1,11 +1,9 @@
 package fr.eql.aicap1.managed.bean;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @ManagedBean(name = "mbCountries")
 @ViewScoped
@@ -14,6 +12,34 @@ public class CountriesManagedBean {
     private final Map<String, List<String>> citiesByCountry = new HashMap<>();
     private String selectedCountry;
     private String selectedCity;
+
+    @PostConstruct
+    public void init(){
+        Collections.addAll(countries, "France", "USA", "Italia");
+        List<String> franceCities = new ArrayList<>();
+        List<String> usaCities = new ArrayList<>();
+        List<String> italyCities = new ArrayList<>();
+
+        Collections.addAll(franceCities, "Paris", "Cachan", "Lille");
+        Collections.addAll(usaCities, "New-York", "Boston", "New Orleans");
+        Collections.addAll(franceCities, "Roma", "Venezia", "Napoli");
+
+        citiesByCountry.put("Fance", franceCities);
+        citiesByCountry.put("USA", usaCities);
+        citiesByCountry.put("Italie", italyCities);
+    }
+    public List<String> fetchCitiesFromCountry(){
+        List<String> cities = new ArrayList<>();
+        if (selectedCountry != null && !selectedCountry.equals("")){
+            cities = citiesByCountry.get(selectedCountry);
+        }
+        return cities;
+    }
+
+    public void resetSelectedCity(){
+        selectedCity = null;
+
+    }
 
     /// Getters ///
     public List<String> getCountries() {return countries; }
