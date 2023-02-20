@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+>
+
+<ui:composition template="arch.xhtml">
+    <ui:define name="head">
+        <title>Pays et villes</title>
+    </ui:define>
+    <ui:define name="content">
+    <b:form>
+        <b:row styleClass="p-1rem">
+            <b:column colXs="12" colSm="4" colMd="4">
+                <b:selectOneMenu label="Pays" value="#{mbCountries.selectedCountry}" valueChangeListener="#{mbCountries.resetSelectedCity()}">
+                    <f:selectItem itemLabel="Selectionner un pays" itemDisabled="true" noSelectionOption="true"/>
+                    <f:selectItems value="#{mbCountries.countries}" var="toto" itemLabel="#{toto}" itemValue="#{toto}"/>
+                </b:selectOneMenu>
+            </b:column>
+        </b:row>
+    </b:form>
+    </ui:define>
+</ui:composition>
+
+
+</html>
